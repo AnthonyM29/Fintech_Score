@@ -72,7 +72,6 @@ def registrar_usuario():
 def simular_cuota_mensual(monto, tasa_anual=24, meses=12):
     """Calcula la cuota mensual fija usando el sistema de amortización francés."""
     tasa_mensual = (tasa_anual / 100) / 12
-    # Fórmula: C = (V * i) / (1 - (1 + i)^-n)
     cuota = (monto * tasa_mensual) / (1 - math.pow(1 + tasa_mensual, -meses))
     return cuota
 
@@ -109,7 +108,6 @@ def modulo_busqueda_interactivo():
                         
                         print(f"Monto solicitado: ${usuario['monto']:,.2f}")
                         print(f"CUOTA MENSUAL SUGERIDA: ${cuota:,.2f} (a 12 meses)")
-                        print("Estatus: Crédito viable para desembolso.")
                     
                     elif usuario['estado'] == "PENDIENTE" or usuario['estado'] == "EN REVISIÓN":
                         print(f"Monto en evaluación: ${usuario['monto']:,.2f}")
@@ -168,7 +166,7 @@ def guardar_reporte_csv():
 def main():
     print("SISTEMA DE REGISTRO DE CRÉDITOS")
     
-    continuar = True # <--- Agregado: Inicializamos la variable
+    continuar = True
     
     while continuar:
         registrar_usuario()
